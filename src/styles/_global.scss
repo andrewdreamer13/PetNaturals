@@ -9,6 +9,9 @@ body{
   color: $text-color;
   background-color: $body-color;
 }
+:root {
+  scroll-behavior: smooth;
+}
 
 .container {
   margin: 0 auto;
@@ -23,3 +26,4 @@ body{
   font-size: clamp(32px, 1.1071rem + 4.4643vw, 52px);
   text-align: center;
 }
+
