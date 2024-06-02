@@ -1,12 +1,26 @@
 /* global styles*/
 
 body{
-  font-family: 'Ubuntu';
+  font-family: $font-family;
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 1.6;
-  color: rgb(232, 88, 5);
-  background-color: rgb(227, 228, 225);
+  font-size: 18px;
+  line-height: 1.27;
+  color: $text-color;
+  background-color: $body-color;
 }
 
+.container {
+  margin: 0 auto;
+  max-width: 1170px;
+  padding: 0 15px;
+  border: solid 1px red;
+}
+
+.title {
+  margin: 0 auto;
+  font-weight: 700;
+  // font-size: 52px;
+  font-size: clamp(32px, 1.1071rem + 4.4643vw, 52px);
+  text-align: center;
+}

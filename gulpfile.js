@@ -42,7 +42,7 @@ let isProd = false; // dev by default
 const paths = {
   html: {
     // src: 'src/**/index.html',
-    src: 'src/*.html',
+    src: 'src/**/*.html',
     dest: 'dist'
   },
   styles: {
@@ -55,15 +55,15 @@ const paths = {
     src: 'src/scripts/**/*.js',
     dest: 'dist/js/'
   },
-  libs: {
-    src: 'src/libs/**/*.js',
-    dest: 'dist/libs/'
-  },
+  // libs: {
+  //   src: 'src/libs/**/*.js',
+  //   dest: 'dist/libs/'
+  // },
 
-  resourses: {
-    src: 'src/resourses/**',
-    dest: 'dist/resourses'
-  },
+  // resourses: {
+  //   src: 'src/resourses/**',
+  //   dest: 'dist/resourses'
+  // },
 
   images: {
     src: 'src/img/**/*.{jpg,jpeg,png,gif,ico,webp,mp4,webm}',
@@ -197,18 +197,18 @@ function scripts() {
 }
 
 // задача для библиотек
-function libs() {
-  return gulp.src(paths.libs.src)
-    .pipe(gulp.dest(paths.libs.dest))
-    .pipe(browserSync.stream())
-}
+// function libs() {
+//   return gulp.src(paths.libs.src)
+//     .pipe(gulp.dest(paths.libs.dest))
+//     .pipe(browserSync.stream())
+// }
 
 // задача для resourses
-function copyResourses() {
-  return gulp.src(paths.resourses.src)
-    .pipe(gulp.dest(paths.resourses.dest))
-    .pipe(browserSync.stream())
-}
+// function copyResourses() {
+//   return gulp.src(paths.resourses.src)
+//     .pipe(gulp.dest(paths.resourses.dest))
+//     .pipe(browserSync.stream())
+// }
 
 // задача для работы с изображениями
 function img() {
@@ -284,15 +284,15 @@ function watch() {
   gulp.watch(paths.html.src, html)
   gulp.watch(paths.styles.src, styles)
   gulp.watch(paths.scripts.src, scripts)
-  gulp.watch(paths.libs.src, scripts)
-  gulp.watch(paths.resourses.src, copyResourses)
+  // gulp.watch(paths.libs.src, scripts)
+  // gulp.watch(paths.resourses.src, copyResourses)
   gulp.watch(paths.images.src, img)
   gulp.watch(paths.svgSprites.src, svgSprites)
   gulp.watch(paths.fonts.src, fonts)
 }
 
 
-const build = gulp.series(delDist, gulp.parallel( html, fonts, scripts, libs, img, svgSprites),styles, copyResourses,zipFiles, watch,deploy);
+const build = gulp.series(delDist, gulp.parallel( html, fonts, scripts, img, svgSprites),styles, zipFiles, watch,deploy);
 
 // экспорт задач
 exports.delDist = delDist;
