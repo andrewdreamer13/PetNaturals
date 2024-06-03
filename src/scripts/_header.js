@@ -1,9 +1,6 @@
-/* burger */
-import {mainPage} from './_vars';
 
 
 
-// header burger menu
 burger();
 
 function burger() {
