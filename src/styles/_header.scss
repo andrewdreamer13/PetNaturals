@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 113px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .header__inner {
@@ -13,49 +13,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 .logo {
-  width: 100%;
-  max-width: 329px;
+  // width: 100%;
+  // max-width: 329px;
+  width: clamp(200px, 8.7059rem + 18.9706vw, 329px);
 }
 .logo__img {
   width: 100%;
   height: 100%;
 }
-.nav {
-  width: 100%;
-  height: 100%;
-  max-width: 446px;
-  background-image: url('../img/nav-bg.webp');
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-  border:1px solid red;
-  
-}
-.nav__list {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap:51px ;
-}
-.nav__item {
-}
+
+
+
 .nav__link {
   font-weight: 700;
   font-size: 20px;
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: $text-color;
+  text-transform: uppercase;
   transition: all .3s;
 }
 
 
 
 .burger {
-  display: none;
+  
   width: 24px;
   height: 16px;
   position: relative;
@@ -87,14 +72,77 @@
   top: 100%;
 }
 
+@media (min-width:1140px) {
+  .nav__item {
+    translate: 20px 0 0;
+  }
+}
 
-@media (max-width:768px) {
+@media (min-width:768px) {
+  .nav {
+    position: static;
+    height: 100%;
+    width: clamp(360px, 4.7069rem + 37.069vw, 446px);
+    background-color: transparent;
+    background-image: url('../img/nav-bg.webp');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border:1px solid red;
+    padding: 0;
+    translate: 0 0 0;
+  }
+
+  .nav__list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+      gap:51px ;
+  }
+
+  .burger {
+    display: none;
+  }
+}
+
+@media (min-width:320px) {
+ 
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    // max-width: 100vw;
+    height: 100dvh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     translate: 100% 0 0;
+     padding: 100px 0 0 0;
+    background-color: $border-color;
+    z-index: 10;
+    overflow: hidden;
+  }
+
+  .nav__list {
+    width: 100%;
+    // height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+      gap:51px ;
+  }
+
   .burger {
     display: block;
   }
 
   .untranslate {
-    transform: translateX(0);
+   translate: 0 0 0;
    }
 
    .span-one-transform {
